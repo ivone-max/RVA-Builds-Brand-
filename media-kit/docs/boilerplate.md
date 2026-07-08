@@ -1,28 +1,42 @@
 # RVA Builds — Boilerplate & Key Facts
 
+## Tagline (live, rvabuilds.us)
+
+> Build a career in the trades, before you graduate.
+
+Candidate-page variant: *"Get paid to learn a career you'll keep."*
+
 ## Short boilerplate (1–2 sentences)
 
-RVA Builds is Richmond Ed Fund's citywide initiative connecting Richmond Public Schools students with paid, on-the-job pathways into the skilled trades — before they graduate.
+RVA Builds connects Richmond Public Schools students with paid, hands-on careers in construction and the skilled trades, before they even graduate.
 
 ## Long boilerplate (press-ready)
 
-RVA Builds is a Richmond Ed Fund initiative that connects Richmond Public Schools (RPS) students with paid, work-based learning and a clear path to Registered Apprenticeships in the skilled trades. Backed by an $8 million investment from Bloomberg Philanthropies and powered by 17 city, union, and employer partners, RVA Builds is designed to move 500 students into living-wage skilled-trades careers — in electrical, HVAC, welding, and construction — by the end of the 2028–29 school year. BuildWithin serves as the program's technology and apprenticeship-design partner. RVA Builds is a program of the [Richmond Ed Fund](https://www.rps.fund/).
+RVA Builds is a Richmond Ed Fund initiative that connects Richmond Public Schools (RPS) students with paid, work-based learning and a clear path to Registered Apprenticeships in the skilled trades. A partnership of Richmond Ed Fund, Richmond Public Schools, the City of Richmond, and Richmond's employers and building trades unions, RVA Builds is backed by an $8 million investment from Bloomberg Philanthropies and is designed to move 500 students into living-wage skilled-trades careers — in electrical, HVAC, welding, and construction — by the end of the 2028–29 school year. BuildWithin serves as the program's technology and apprenticeship-design partner. RVA Builds is a program of the [Richmond Ed Fund](https://www.rps.fund/).
 
 ## Key facts
+
+**"By the numbers" (as published on rvabuilds.us):**
+
+| Fact | Detail |
+|---|---|
+| RPS grads → apprenticeships | 150, aimed for within 3 years |
+| Students in paid trades learning | 500, by 2028–29 (goal) |
+| Partners | 17 — schools, the city, business & unions |
+| Paid work-based learning | 120+ hours per student |
+
+**Additional facts (from the program's public launch coverage):**
 
 | Fact | Detail |
 |---|---|
 | Investment | $8 million, backed by Bloomberg Philanthropies |
-| Students | 500 RPS students, by the end of the 2028–29 school year |
-| Partners | 17 city, union, and employer partners |
-| Paid work-based learning | At least 120 hours per student |
 | Wage floor | Partners commit to at least $23/hour in total compensation after graduation |
 | Trades covered | Electrical, HVAC, welding, construction |
 | Parent organization | Richmond Ed Fund ([rps.fund](https://www.rps.fund/)) |
 | Technology & apprenticeship partner | BuildWithin |
 | Program site | [rvabuilds.us](https://rvabuilds.us/) |
 
-*Figures per the program's public launch announcement (PR Newswire, 2025) and Richmond Ed Fund. Confirm current figures with Richmond Ed Fund before reuse in new press materials, as program numbers may update over time.*
+*The "by the numbers" figures were confirmed directly against the live site (rvabuilds.us) on 2026-07-08. The additional facts are from the program's public launch announcement (PR Newswire, 2025). Confirm current figures with Richmond Ed Fund before reuse in new press materials, as program numbers update over time.*
 
 ## Leadership quotes (for press use)
 

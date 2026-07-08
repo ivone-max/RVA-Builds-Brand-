@@ -26,10 +26,12 @@
 
 ## Audience-specific voice
 
-**Talking to candidates (students / families)** — encouraging, concrete, low-jargon:
-> "Get paid to learn a trade — before you even graduate. Electrical, HVAC, welding, construction: real hours, real wages, real employers in Richmond."
+**Talking to candidates (students / families)** — encouraging, concrete, low-jargon. This is verbatim from the live "For Students" page (rvabuilds.us/candidates), the clearest calibration point for the voice:
+> "Get paid to learn a career you'll keep." RVA Builds is open to Richmond Public Schools students. Earn paid hours in the skilled trades and graduate straight into a real apprenticeship, at no cost to you.
 
-**Talking to employers / partners** — direct, ROI-minded, still warm:
+Supporting copy from the same page reinforces the "no gatekeeping" tone: *"No experience needed — you don't need a résumé full of jobs, just the drive to learn."* and *"More than a job. A real head start."*
+
+**Talking to employers / partners** — direct, ROI-minded, still warm (illustrative — no employer-page copy has been sourced yet, calibrate against live copy once available):
 > "Train your next hire while they're still in school. RVA Builds connects you with RPS students ready for paid, on-the-job experience — and a clear path to a Registered Apprenticeship."
 
 **Talking to press / civic partners** — editorial, sourced, quote-forward:
@@ -37,8 +39,9 @@
 
 ## Sample messaging
 
-- **Tagline direction:** *Building Richmond's next workforce.*
-- **One-line pitch:** *RVA Builds pairs RPS students with paid apprenticeship pathways into Richmond's skilled trades.*
+- **Tagline (live):** *Build a career in the trades, before you graduate.*
+- **Candidate-page headline (live):** *Get paid to learn a career you'll keep.*
+- **One-line pitch:** *RVA Builds connects RPS students with paid, hands-on careers in construction and the skilled trades, before they graduate.*
 - **Mission framing:** *A choice-filled life isn't a slogan — it's what RVA Builds is built to deliver.*
 
 ## Do / Don't quick reference
