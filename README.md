@@ -2,13 +2,14 @@
 
 Media kit for **RVA Builds**, the Richmond Ed Fund's citywide apprenticeship initiative for Richmond Public Schools students.
 
-> **Start here:** open [`media-kit/index.html`](media-kit/index.html) in a browser.
+> **Start here:** open [`media-kit/index.html`](media-kit/index.html) (full scrolling kit) or [`media-kit/slides.html`](media-kit/slides.html) (13-slide presentation deck) in a browser.
 
 ## What's inside
 
 ```
 media-kit/
-├── index.html                 ← the media kit (open this)
+├── index.html                 ← the full scrolling media kit (open this)
+├── slides.html                ← the same content as a click-through slideshow
 ├── assets/
 │   ├── logos/
 │   │   ├── horizontal/        ← primary lockup: full color + mono, light + dark backgrounds
