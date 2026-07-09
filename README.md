@@ -2,7 +2,7 @@
 
 Media kit for **RVA Builds**, the Richmond Ed Fund's citywide apprenticeship initiative for Richmond Public Schools students.
 
-> **Start here:** open [`media-kit/index.html`](media-kit/index.html) (full scrolling kit) or [`media-kit/slides.html`](media-kit/slides.html) (13-slide presentation deck) in a browser.
+> **Start here:** open [`media-kit/index.html`](media-kit/index.html) (full scrolling kit) or [`media-kit/slides.html`](media-kit/slides.html) (14-slide presentation deck) in a browser. Downloadable versions: [`media-kit/RVA-Builds-Media-Kit.pdf`](media-kit/RVA-Builds-Media-Kit.pdf) and [`media-kit/RVA-Builds-Media-Kit.pptx`](media-kit/RVA-Builds-Media-Kit.pptx).
 
 ## What's inside
 
