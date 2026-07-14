@@ -1,14 +1,14 @@
-# RVA Builds — Media Kit
+# RVA Builds — Brand Kit
 
-Media kit for **RVA Builds**, the Richmond Ed Fund's citywide apprenticeship initiative for Richmond Public Schools students.
+Brand kit for **RVA Builds**, the Richmond Ed Fund's citywide apprenticeship initiative for Richmond Public Schools students.
 
-> **Start here:** open [`media-kit/index.html`](media-kit/index.html) (full scrolling kit) or [`media-kit/slides.html`](media-kit/slides.html) (14-slide presentation deck) in a browser. Downloadable versions: [`media-kit/RVA-Builds-Media-Kit.pdf`](media-kit/RVA-Builds-Media-Kit.pdf) and [`media-kit/RVA-Builds-Media-Kit.pptx`](media-kit/RVA-Builds-Media-Kit.pptx).
+> **Start here:** open [`media-kit/index.html`](media-kit/index.html) (full scrolling kit) or [`media-kit/slides.html`](media-kit/slides.html) (presentation deck) in a browser. Downloadable versions: [`media-kit/RVA-Builds-Brand-Kit.pdf`](media-kit/RVA-Builds-Brand-Kit.pdf) and [`media-kit/RVA-Builds-Brand-Kit.pptx`](media-kit/RVA-Builds-Brand-Kit.pptx).
 
 ## What's inside
 
 ```
 media-kit/
-├── index.html                 ← the full scrolling media kit (open this)
+├── index.html                 ← the full scrolling brand kit (open this)
 ├── slides.html                ← the same content as a click-through slideshow
 ├── assets/
 │   ├── logos/
@@ -48,10 +48,10 @@ Full palette in [`media-kit/docs/palette.md`](media-kit/docs/palette.md). Drop [
 
 ## Typography
 
-- **Space Grotesk** — headings
-- **Schibsted Grotesk** — body
+- **Montserrat** — headings
+- **Lato** — body
 
-Both are free (OFL) via Google Fonts. Details in [`media-kit/docs/typography.md`](media-kit/docs/typography.md).
+Both are standard Google Workspace fonts. Details in [`media-kit/docs/typography.md`](media-kit/docs/typography.md).
 
 ## Tone & voice
 

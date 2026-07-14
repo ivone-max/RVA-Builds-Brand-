@@ -54,4 +54,4 @@ Supporting copy from the same page reinforces the "no gatekeeping" tone: *"No ex
 **Don't**
 - Don't use deficit language about Richmond, RPS, or students ("struggling," "at-risk," "failing schools").
 - Don't imply a guarantee of a job or wage the program itself doesn't make.
-- Don't mix the two grotesk typefaces' roles — see `typography.md` for which face carries which voice (Space Grotesk = confident/declarative, Schibsted Grotesk = conversational/informative).
+- Don't mix the two typefaces' roles — see `typography.md` for which face carries which voice (Montserrat = confident/declarative, Lato = conversational/informative).
