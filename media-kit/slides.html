@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RVA Builds — Brand Kit (Slideshow)</title>
+<meta name="description" content="RVA Builds brand kit, presented as a slideshow: logos, colors, typography, tone &amp; voice, boilerplate, and photography.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#F15C2C; --accent-hover:#D8481F; --accent-blue:#329FE6; --accent-purple:#7A35AE;
+    --surface:#FFFFFF; --surface-soft:#F6F6F6; --surface-tint:#FDEDE7;
+    --ink:#1A1A1A; --ink-muted:#5A5A5A; --border:#E4E4E4;
+    --success:#1F8A4C; --danger:#C0392B;
+    --font-display:"Montserrat","Helvetica Neue",Arial,sans-serif;
+    --font-body:"Lato","Helvetica Neue",Arial,sans-serif;
+    --sidebar-w: 34%;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--ink);line-height:1.4;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--font-display);line-height:1.08;letter-spacing:-.01em}
+
+  .deck{position:relative;width:100vw;height:100vh;overflow:hidden;background:var(--surface)}
+  .slide{position:absolute;inset:0;display:flex;opacity:0;visibility:hidden;transition:opacity .35s ease}
+  .slide.active{opacity:1;visibility:visible;z-index:1}
+
+  /* ---- template: sidebar + content, used by nearly every slide ---- */
+  .sidebar{flex:0 0 var(--sidebar-w);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6% 7%}
+  .sidebar.dark{background:var(--ink);color:#fff}
+  .sidebar.light{background:var(--surface-soft);color:var(--ink)}
+  .sidebar .kicker{font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:.16em;color:var(--accent);margin-bottom:18px}
+  .sidebar h2{font-size:clamp(26px,2.6vw,38px);font-weight:700;text-transform:uppercase;margin-bottom:20px}
+  .sidebar p{font-size:15px;max-width:30ch;opacity:.72;line-height:1.5}
+  .sidebar.dark p{color:#fff}
+  .sidebar.light p{color:var(--ink-muted);opacity:1}
+
+  .content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .content.bg-light{background:var(--surface-soft)}
+  .content.bg-white{background:var(--surface)}
+  .content.bg-dark{background:var(--ink)}
+
+  /* ---- COVER ---- */
+  .cover .sidebar{background:var(--accent);color:#fff;align-items:flex-start;text-align:left;justify-content:flex-end;padding:8% 9%}
+  .cover .sidebar img{height:30px;margin-bottom:26px}
+  .cover .sidebar .eyebrow{font-family:var(--font-display);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-bottom:10px}
+  .cover .sidebar h1{font-size:clamp(38px,4.6vw,58px);font-weight:700;color:#fff;text-transform:uppercase;line-height:1.02}
+  .cover .content{padding:0}
+  .cover .content img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ---- logo stages ---- */
+  .logo-stage{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+  .logo-stage img{max-width:60%;max-height:34%;object-fit:contain}
+  .stack-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;width:100%;height:100%}
+  .stack-cell{display:flex;align-items:center;justify-content:center}
+  .stack-cell img{max-width:55%;max-height:60%;object-fit:contain}
+  .split-2{display:flex;flex-direction:column;width:100%;height:100%}
+  .split-2 .half{flex:1;display:flex;align-items:center;justify-content:center}
+  .split-2 .half img{max-width:55%;max-height:44%;object-fit:contain}
+
+  /* ---- stat row (about slide) ---- */
+  .stat-wrap{width:82%}
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .stat-cell{padding:26px 20px 26px 0;border-right:1px solid var(--border)}
+  .stat-cell:last-child{border-right:none}
+  .stat-cell .num{font-family:var(--font-display);font-weight:700;font-size:38px;color:var(--ink)}
+  .stat-cell .num .plus{color:var(--accent)}
+  .stat-cell .label{font-size:12.5px;color:var(--ink-muted);margin-top:6px;max-width:20ch;line-height:1.35}
+  .tagline{margin-top:30px;font-family:var(--font-display);font-weight:600;font-size:20px;text-align:center;max-width:26ch}
+  .tagline .accent{color:var(--accent)}
+
+  /* ---- color swatch rows ---- */
+  .swatch-list{width:70%;display:flex;flex-direction:column;gap:34px}
+  .swatch-row{display:flex;align-items:center;gap:34px}
+  .swatch-chip{width:110px;height:70px;flex:none}
+  .swatch-meta{display:flex;gap:46px;align-items:baseline}
+  .swatch-hex{font-family:var(--font-display);font-weight:700;font-size:19px}
+  .swatch-rgb{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--ink-muted);line-height:1.7}
+
+  /* ---- typography specimen ---- */
+  .type-wrap{width:78%}
+  .type-name{font-family:var(--font-display);font-weight:700;font-size:28px;margin-bottom:18px}
+  .type-row{display:flex;gap:48px;padding-bottom:34px;margin-bottom:30px;border-bottom:1px solid var(--border)}
+  .type-row:last-child{border-bottom:none;margin-bottom:0}
+  .type-sample{text-align:center}
+  .type-sample .glyph{font-size:32px}
+  .type-sample .weight{font-size:12px;color:var(--ink-muted);margin-top:10px}
+
+  /* ---- plain list (voice / usage rules) ---- */
+  .plain-list{width:72%;display:flex;flex-direction:column}
+  .plain-row{display:flex;gap:28px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--border)}
+  .plain-row:last-child{border-bottom:none}
+  .plain-row .trait{font-family:var(--font-display);font-weight:700;font-size:16px;flex:0 0 160px}
+  .plain-row .example{font-size:14.5px;color:var(--ink-muted)}
+
+  .two-col-list{width:82%;display:flex;gap:60px}
+  .two-col-list .col{flex:1}
+  .two-col-list h4{font-family:var(--font-display);font-size:15px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .two-col-list ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .two-col-list li{font-size:13.5px;color:var(--ink-muted);padding-left:22px;position:relative}
+  .do li::before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:700}
+  .dont li::before{content:"✕";position:absolute;left:0;color:var(--danger);font-weight:700}
+
+  /* ---- quotes (plain rows) ---- */
+  .quote-list{width:78%;display:flex;flex-direction:column}
+  .quote-row{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+  .quote-row:last-child{border-bottom:none}
+  .quote-row img{width:46px;height:46px;object-fit:cover;flex:none}
+  .quote-row .qtext{font-size:14px;color:var(--ink);line-height:1.45}
+  .quote-row .qwho{font-family:var(--font-display);font-weight:700;font-size:12.5px;margin-top:6px;color:var(--ink-muted)}
+
+  /* ---- photography mosaic ---- */
+  .mosaic{width:88%;height:78%;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:10px}
+  .mosaic .m1{grid-column:1/3;grid-row:1/3}
+  .mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ---- closing ---- */
+  .doc-list{width:66%;display:flex;flex-direction:column;gap:10px}
+  .doc-list .row{font-size:13.5px;color:var(--ink-muted);display:flex;gap:10px}
+  .doc-list code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;background:var(--surface);border:1px solid var(--border);padding:2px 8px}
+  .closing-link{margin-top:28px;font-size:13px;color:var(--ink-muted)}
+  .closing-link a{color:var(--ink)}
+
+  /* ---- controls ---- */
+  .controls{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;gap:16px;padding:14px 28px;background:rgba(255,255,255,.96);border-top:1px solid var(--border)}
+  .ctrl-btn{font-family:var(--font-display);font-weight:600;font-size:13px;padding:8px 16px;border:1.5px solid var(--border);background:#fff;color:var(--ink);cursor:pointer}
+  .ctrl-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .ctrl-btn:disabled{opacity:.35;cursor:default}
+  .dots{display:flex;gap:6px;flex:1;overflow-x:auto;padding:2px}
+  .dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;border:none;padding:0}
+  .dot.active{background:var(--accent);width:20px;border-radius:4px}
+  .counter{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:var(--ink-muted);flex:none}
+  .fullkit-link{font-family:var(--font-display);font-weight:600;font-size:12.5px;color:var(--ink-muted);text-decoration:none;flex:none}
+  .fullkit-link:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1 — COVER -->
+  <section class="slide cover active">
+    <div class="sidebar">
+      <img src="assets/logos/horizontal/rva-builds-logo-light.png" alt="RVA Builds">
+      <div class="eyebrow">Richmond Ed Fund Initiative</div>
+      <h1>Brand<br>Kit</h1>
+    </div>
+    <div class="content"><img src="assets/photography/hero-connection.jpg" alt="Two RVA Builds students"></div>
+  </section>
+
+  <!-- SLIDE 2 — ABOUT -->
+  <section class="slide">
+    <div class="sidebar dark">
+      <div class="kicker">01</div>
+      <h2>What is<br>RVA Builds?</h2>
+      <p>RVA Builds connects Richmond Public Schools students with paid, hands-on careers in construction and the skilled trades — before they even graduate. A Richmond Ed Fund initiative, backed by Bloomberg Philanthropies.</p>
+    </div>
+    <div class="content bg-white">
+      <div class="stat-wrap">
+        <div class="stat-row">
+          <div class="stat-cell"><div class="num">150</div><div class="label">RPS grads aimed at registered apprenticeships in 3 years</div></div>
+          <div class="stat-cell"><div class="num">500</div><div class="label">Students in paid trades learning by 2028–29 (goal)</div></div>
+          <div class="stat-cell"><div class="num">17</div><div class="label">Partners: schools, the city, business &amp; unions</div></div>
+          <div class="stat-cell"><div class="num">120<span class="plus">+</span></div><div class="label">Paid work-based learning hours per student</div></div>
+        </div>
+      </div>
+      <div class="tagline">Build a career in the trades, <span class="accent">before you graduate.</span></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4 — REPRODUCTION: FULL COLOR -->
+  <section class="slide">
+    <div class="sidebar dark">
+      <div class="kicker">02</div>
+      <h2>Primary Logo<br>Reproduction</h2>
+      <p>The primary logo is full color on a white background. Use this version wherever possible.</p>
+    </div>
+    <div class="content bg-white">
+      <div class="logo-stage"><img src="assets/logos/horizontal/rva-builds-logo-dark-color.png" alt="RVA Builds full color logo"></div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5 — REPRODUCTION: ON DARK / ON COLOR -->
+  <section class="slide">
+    <div class="sidebar light">
+      <div class="kicker">02</div>
+      <h2>Logo<br>Variations</h2>
+      <p>The logo can also be used on a contextually colored background, as long as there's contrast.</p>
+    </div>
+    <div class="content">
+      <div class="split-2">
+        <div class="half" style="background:var(--accent)"><img src="assets/logos/horizontal/rva-builds-logo-light.png" alt="Mono white on coral"></div>
+        <div class="half" style="background:var(--ink)"><img src="assets/logos/horizontal/rva-builds-logo-light-color.png" alt="Full color on dark"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 6 — STACKED LOCKUP -->
+  <section class="slide">
+    <div class="sidebar dark">
+      <div class="kicker">02</div>
+      <h2>Stacked<br>Lockup</h2>
+      <p>For square or vertical placements — social avatars, signage, mobile headers.</p>
+    </div>
+    <div class="content">
+      <div class="stack-grid">
+        <div class="stack-cell" style="background:var(--surface)"><img src="assets/logos/stacked/rva-builds-logo-stacked-dark-color.png" alt="Stacked full color on white"></div>
+        <div class="stack-cell" style="background:var(--ink)"><img src="assets/logos/stacked/rva-builds-logo-stacked-light-color.png" alt="Stacked full color on dark"></div>
+        <div class="stack-cell" style="background:var(--surface-soft)"><img src="assets/logos/stacked/rva-builds-logo-stacked-dark.png" alt="Stacked mono dark"></div>
+        <div class="stack-cell" style="background:var(--accent)"><img src="assets/logos/stacked/rva-builds-logo-stacked-light.png" alt="Stacked mono white"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 7 — USAGE RULES -->
+  <section class="slide">
+    <div class="sidebar dark">
+      <div class="kicker">02</div>
+      <h2>Usage<br>Rules</h2>
+      <p>No image or background should ever compete with the mark's clarity, and it must always appear in an approved color combination.</p>
+    </div>
+    <div class="content bg-white">
+      <div class="two-col-list">
+        <div class="col">
+          <h4>Do</h4>
+          <ul class="do">
+            <li>Keep clear space equal to the height of the cube icon.</li>
+            <li>Use full color on white or photography with a dark overlay.</li>
+            <li>Use the white mono mark on coral, purple, blue, or busy photos.</li>
+            <li>Scale proportionally — never stretch.</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4>Don't</h4>
+          <ul class="dont">
+            <li>Don't recolor the cube or crane outside the brand palette.</li>
+            <li>Don't place the full-color mark on low-contrast backgrounds.</li>
+            <li>Don't add shadows, outlines, or effects to the mark.</li>
+            <li>Don't rotate, skew, or crowd the logo.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 8 — MAIN COLORS -->
+  <section class="slide">
+    <div class="sidebar dark">
+      <div class="kicker">03</div>
+      <h2>Main<br>Colors</h2>
+      <p>These colors represent the identity of RVA Builds — meant to build trust between candidates and employers.</p>
+    </div>
+    <div class="content bg-white">
+      <div class="swatch-list">
+        <div class="swatch-row">
+          <div class="swatch-chip" style="background:#F15C2C"></div>
+          <div class="swatch-meta"><span class="swatch-hex">#F15C2C</span><span class="swatch-rgb">R: 241<br>G: 92<br>B: 44</span><span class="swatch-rgb">Coral — primary / action</span></div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch-chip" style="background:#329FE6"></div>
+          <div class="swatch-meta"><span class="swatch-hex">#329FE6</span><span class="swatch-rgb">R: 50<br>G: 159<br>B: 230</span><span class="swatch-rgb">Blue — employer path</span></div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch-chip" style="background:#7A35AE"></div>
+          <div class="swatch-meta"><span class="swatch-hex">#7A35AE</span><span class="swatch-rgb">R: 122<br>G: 53<br>B: 174</span><span class="swatch-rgb">Purple — candidate path</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 9 — SECONDARY COLORS -->
+  <section class="slide">
+    <div class="sidebar dark">
+      <div class="kicker">03</div>
+      <h2>Secondary<br>Colors</h2>
+      <p>These create contrast against the main palette and should be used sparingly, for text, surfaces, and system states.</p>
+    </div>
+    <div class="content bg-white">
+      <div class="swatch-list">
+        <div class="swatch-row">
+          <div class="swatch-chip" style="background:#1A1A1A"></div>
+          <div class="swatch-meta"><span class="swatch-hex">#1A1A1A</span><span class="swatch-rgb">Ink — body text</span></div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch-chip" style="background:#F6F6F6;border:1px solid #E4E4E4"></div>
+          <div class="swatch-meta"><span class="swatch-hex">#F6F6F6</span><span class="swatch-rgb">Surface Soft — alt sections</span></div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch-chip" style="background:#1F8A4C"></div>
+          <div class="swatch-meta"><span class="swatch-hex">#1F8A4C</span><span class="swatch-rgb">Success</span></div>
+        </div>
+        <div class="swatch-row">
+          <div class="swatch-chip" style="background:#C0392B"></div>
+          <div class="swatch-meta"><span class="swatch-hex">#C0392B</span><span class="swatch-rgb">Danger</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 10 — TYPOGRAPHY -->
+  <section class="slide">
+    <div class="sidebar dark">
+      <div class="kicker">04</div>
+      <h2>Typography</h2>
+      <p>Two contrasting typefaces: Montserrat for headlines, Lato for body. Both are standard Google Workspace fonts. Weights can vary, as long as the text stays legible.</p>
+    </div>
+    <div class="content bg-white">
+      <div class="type-wrap">
+        <div class="type-name" style="font-family:var(--font-display)">Montserrat</div>
+        <div class="type-row">
+          <div class="type-sample"><div class="glyph" style="font-family:var(--font-display);font-weight:500">Aa</div><div class="weight">Medium</div></div>
+          <div class="type-sample"><div class="glyph" style="font-family:var(--font-display);font-weight:600">Aa</div><div class="weight">SemiBold</div></div>
+          <div class="type-sample"><div class="glyph" style="font-family:var(--font-display);font-weight:700">Aa</div><div class="weight">Bold</div></div>
+        </div>
+        <div class="type-name" style="font-family:var(--font-body)">Lato</div>
+        <div class="type-row">
+          <div class="type-sample"><div class="glyph" style="font-family:var(--font-body);font-weight:400">Aa</div><div class="weight">Regular</div></div>
+          <div class="type-sample"><div class="glyph" style="font-family:var(--font-body);font-weight:700">Aa</div><div class="weight">Bold</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 11 — TONE & VOICE -->
+  <section class="slide">
+    <div class="sidebar dark">
+      <div class="kicker">05</div>
+      <h2>Tone &amp;<br>Voice</h2>
+      <p>Hopeful, trustworthy, civic, warm, data-informed, editorial.</p>
+    </div>
+    <div class="content bg-white">
+      <div class="plain-list">
+        <div class="plain-row"><span class="trait">Hopeful</span><span class="example">"A choice-filled life is the standard."</span></div>
+        <div class="plain-row"><span class="trait">Trustworthy</span><span class="example">"500 students, 17 partners, by 2028–29."</span></div>
+        <div class="plain-row"><span class="trait">Civic</span><span class="example">"Right here in Richmond, Virginia."</span></div>
+        <div class="plain-row"><span class="trait">Warm</span><span class="example">"A student earning a paycheck and a future."</span></div>
+        <div class="plain-row"><span class="trait">Data-informed</span><span class="example">"$23/hour minimum after graduation."</span></div>
+        <div class="plain-row"><span class="trait">Editorial</span><span class="example">Full sentences, active voice, real quotes.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 12 — QUOTES -->
+  <section class="slide">
+    <div class="sidebar dark">
+      <div class="kicker">06</div>
+      <h2>Voices &amp;<br>Leadership</h2>
+      <p>Approved leadership quotes, paired with headshots for editorial and press use.</p>
+    </div>
+    <div class="content bg-white">
+      <div class="quote-list">
+        <div class="quote-row">
+          <img src="assets/people/jason-kamras.jpg" alt="Jason Kamras">
+          <div><div class="qtext">"Our students deserve to graduate with real options. A choice-filled life is not a slogan; it's a standard we hold ourselves to."</div><div class="qwho">Jason Kamras — Superintendent, Richmond Public Schools</div></div>
+        </div>
+        <div class="quote-row">
+          <img src="assets/people/danny-avula.jpg" alt="Danny Avula">
+          <div><div class="qtext">"By building direct pipelines from the classroom to local employers, we ensure young people have a clear path to stable careers."</div><div class="qwho">Danny Avula — Mayor of Richmond</div></div>
+        </div>
+        <div class="quote-row">
+          <img src="assets/people/taikein-cooper.jpg" alt="Taikein Cooper">
+          <div><div class="qtext">"Too many of our students leave high school without a real path to a career that can support a family. RVA Builds changes that."</div><div class="qwho">Taikein Cooper — CEO, Richmond Ed Fund</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 13 — PHOTOGRAPHY -->
+  <section class="slide">
+    <div class="sidebar dark">
+      <div class="kicker">07</div>
+      <h2>Photography</h2>
+      <p>Every photo used in RVA Builds materials should show real working people, with genuine range in age, background, and trade.</p>
+      <p style="margin-top:16px">Stock imagery and illustration should not be used.</p>
+    </div>
+    <div class="content bg-white">
+      <div class="mosaic">
+        <div class="m1"><img src="assets/photography/hero-connection.jpg" alt="Connection"></div>
+        <img src="assets/photography/day-one-2024.jpg" alt="Day One 2024">
+        <img src="assets/photography/tj-grad.jpg" alt="TJ Graduation">
+        <img src="assets/photography/teacher-orientation.jpg" alt="Teacher Orientation">
+        <img src="assets/photography/mission-tomorrow.jpg" alt="Mission Tomorrow">
+        <img src="assets/photography/rps-shines-event.jpg" alt="RPS Shines">
+      </div>
+    </div>
+  </section>
+
+
+</div>
+
+<div class="controls">
+  <button class="ctrl-btn" id="prevBtn" aria-label="Previous slide">← Prev</button>
+  <div class="dots" id="dots"></div>
+  <span class="counter" id="counter">1 / 13</span>
+  <button class="ctrl-btn" id="nextBtn" aria-label="Next slide">Next →</button>
+  <a class="fullkit-link" href="index.html">Full kit ↗</a>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const dotsEl = document.getElementById('dots');
+  const counterEl = document.getElementById('counter');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let idx = 0;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    d.addEventListener('click', () => go(i));
+    dotsEl.appendChild(d);
+  });
+  const dots = Array.from(dotsEl.children);
+
+  function render() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    counterEl.textContent = (idx + 1) + ' / ' + slides.length;
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === slides.length - 1;
+  }
+  function go(i) {
+    idx = Math.max(0, Math.min(slides.length - 1, i));
+    render();
+  }
+
+  prevBtn.addEventListener('click', () => go(idx - 1));
+  nextBtn.addEventListener('click', () => go(idx + 1));
+
+  window.addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { go(idx + 1); e.preventDefault(); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { go(idx - 1); e.preventDefault(); }
+    if (e.key === 'Home') { go(0); e.preventDefault(); }
+    if (e.key === 'End') { go(slides.length - 1); e.preventDefault(); }
+  });
+
+  let touchStartX = null;
+  window.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  window.addEventListener('touchend', (e) => {
+    if (touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) go(idx + (dx < 0 ? 1 : -1));
+    touchStartX = null;
+  });
+
+  render();
+</script>
+
+</body>
+</html>

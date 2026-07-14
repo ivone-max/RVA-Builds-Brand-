@@ -1,0 +1,53 @@
+/* Richmond Ed Fund — Apprenticeship Site
+ * Brand design tokens. Source: rps.fund (Squarespace 7.1 theme) + DESIGN.md
+ * Import this once at the root of the app.
+ */
+
+:root {
+  /* ---- Brand accents ---- */
+  --accent:        #F15C2C; /* coral — primary CTA / emphasis */
+  --accent-hover:  #D8481F; /* darkened coral — hover/active */
+  --accent-blue:   #329FE6; /* secondary — Employer path */
+  --accent-purple: #7A35AE; /* tertiary — Candidate path */
+
+  /* ---- Surfaces ---- */
+  --surface:       #FFFFFF;
+  --surface-soft:  #F6F6F6;
+  --surface-tint:  #FDEDE7; /* light coral wash for callouts */
+
+  /* ---- Ink / text ---- */
+  --ink:           #1A1A1A;
+  --ink-muted:     #5A5A5A;
+  --border:        #E4E4E4;
+
+  /* ---- Status ---- */
+  --success:       #1F8A4C;
+  --danger:        #C0392B;
+
+  /* ---- Type ---- */
+  --font-display: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Lato", "Helvetica Neue", Arial, sans-serif;
+
+  /* ---- Spacing (4px base) ---- */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
+  --space-24: 96px; --space-32: 128px;
+
+  /* ---- Radius ---- */
+  --radius-sm: 8px;
+  --radius-pill: 9999px;
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-sm: 160ms;
+  --dur-md: 300ms;
+  --dur-lg: 560ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
